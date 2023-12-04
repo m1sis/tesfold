@@ -93,8 +93,8 @@
       .comic-title {
         display: block;
         text-align: center;
-        font-size: 36px;
-        margin-top: 10px;
+        font-size: 90px;
+        margin-top: 80px;
         color: #E0D16A;
         /* Starting color */
         width: 100%;
@@ -143,6 +143,7 @@
         border: 1px solid #007bff00;
         padding: 5px 10px;
         border-radius: 5px;
+      box-shadow: #000000;
         transition: background-color 0.5s, color 0.5s;
         margin-right: 10px;
         /* Adds space to the right of each button */
@@ -161,41 +162,8 @@
     </style>
   </head>
   <body>
-    <a href="page1.html" class="comic-title"> <strong>8 f o l d</strong></a>
-    <header>
-      <nav>
-        <div class="button-container">
-          <a href="archive.html" class="nav-button">Archive</a>
-          <a href="contact.html" class="nav-button">Contact</a>
-        </div>
-      </nav>
-    </header>
-
-    <div class="comic-container">
-      <a href="page2.html" class="comic-link">
-        <img src="pages/1.png" alt="Comic Title" class="comic-image">
-      </a>
-      <div class="comic-text">
-        <div class="comic-description">Description or author's note.</div>
-
-      </div>
-    </div>
-    <div class="button-container">
-      <a id="prevPageButton" href="page1.html" class="nav-button">Previous Page</a>
-      <a id="nextPageButton" href="page2.html" class="nav-button">Next Page</a>
-    </div>
-
-    <script>
-      document.addEventListener('keydown', function(event) {
-        if (event.keyCode === 39) { // Right arrow key
-          window.location.href = 'page2.html'; // Change to your next page URL
-        } else if (event.keyCode === 37) { // Left arrow key
-          window.location.href = 'page1.html'; // Change to your previous page URL
-        }
-      });
-    </script>
-
-
+    <div class="header"><a href="main/page1.html" class="comic-title"> <strong>8 f o l d</strong></a></div>
+    
 
   </body>
 </html>
