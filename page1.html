@@ -16,15 +16,14 @@
             justify-content: center;
             /* Center vertically */
             align-items: center;
-            min-height: 100vh;
-            /* Full viewport height */
+            min-height: 95vh;
+            /* near-Full viewport height */
         }
 
         header {
             width: 100%;
             background: #7d7d7d;
-            padding: 10px 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
+            box-shadow: 0 2px 4px rgba(91, 47, 47, 0);
         }
 
         nav {
@@ -221,7 +220,34 @@ margin-bottom: 10px;
     opacity: 100%;
 }
 .h {
+    display: flex;
+    max-width: 100%; /* Adjust as needed */
     color: #E0D16A;
+    justify-content: flex-start;
+    text-align: left;
+    background: #000000; /* Or any other styling you want */
+    margin-right: 25%;
+    margin-top: -8px;
+    margin-bottom: -8px;
+    padding: 2px;
+    padding-left: 8px;
+
+    border-radius: 10px;
+}
+
+.y {
+    display: flex;
+    max-width: 100%; /* Adjust as needed */
+    color: #1f2f95;
+    justify-content: flex-end;
+    text-align: right;
+    background: #ffffff; /* Or any other styling you want */
+    margin-left: 25%;
+    margin-top: -8px;
+    margin-bottom: -8px;
+    padding: 2px;
+    padding-right: 8px;
+    border-radius: 10px;
 }
 
     </style>
@@ -241,16 +267,16 @@ margin-bottom: 10px;
     <div class="comic-container">
         <div class="comic-wrapper">
             <a href="page2.html" class="comic-link">
-                <img src="pages/4.png" alt="Comic Title" class="comic-image">
+                <img src="pages/1.jpeg" alt="A lone apprentice and their creation stand in an empty yellow space." class="comic-image">
             </a>
         </div>
     
        
     
         <div class="comic-text">
-            <div class="comic-description"> <a class="comic-title2">H 1.1</a></div>
-            <hr color="#666" noshade width="100%" ;>
-<a class="h">H</a>: <a class="h">you are h.</a>
+            <div class="comic-description"> <a><strong>[TRANSCRIPT]</strong></a></div>
+            <hr color="#666" noshade width="100%" ;> <br>
+<a class="y">Hello world!</a>
 
         </div>
     </div>
@@ -277,9 +303,9 @@ margin-bottom: 10px;
             // Update toggle button visual and source state
             updateToggleButton(toggle, popupEnabled);
 
-            if (currentPage === 'page3.html') {
+            if (currentPage === 'page23.html') {
                 localStorage.setItem('shouldPopupClose', 'true');
-            } else if (currentPage === 'page2.html' && popupEnabled) {
+            } else if (currentPage === 'page14.html' && popupEnabled) {
                 localStorage.setItem('shouldPopupClose', 'false');
                 window.open('music.html', 'PopupWindow', 'width=600,height=400');
             }
@@ -350,7 +376,7 @@ margin-bottom: 10px;
             if (event.keyCode === 39) { // Right arrow key
                 window.location.href = 'page2.html'; // Change to your next page URL
             } else if (event.keyCode === 37) { // Left arrow key
-                window.location.href = 'page1.html'; // Change to your previous page URL
+                window.location.href = 'index.html'; // Change to your previous page URL
             }
         });
 

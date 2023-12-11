@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8fold</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: courier;
+            background: #7d7d7d;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* Center vertically */
+            align-items: center;
+            min-height: 95vh;
+            /* near-Full viewport height */
+        }
+
+        header {
+            width: 100%;
+            background: #7d7d7d;
+            box-shadow: 0 2px 4px rgba(91, 47, 47, 0);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            margin: 0 15px;
+            color: #ffffff;
+            font-size: 16px;
+        }
+
+        .comic-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: auto;
+    width: 100%;
+    align-items: center;
+}
+
+
+        .comic-image {
+            max-width: 90%;
+            /* or any other value that fits your layout */
+            max-height: 70vh;
+            /* or any other value */
+            height: auto;
+            /* maintain aspect ratio */
+            border-radius: 10px;
+
+        }
+
+        @media (min-width: 768px) {
+    .comic-container {
+        flex-direction: row; /* Side by side alignment for widescreen */
+        max-width: 1200px;
+        width: 90%;
+        margin: auto;
+        align-items: center;
+    }
+    .comic-wrapper, .comic-text {
+        width: 100%; /* Ensure full width */
+    }
+
+    
+
+}
+
+.comic-text {
+            text-align: left;
+            padding: 20px;
+            max-width: 100%;
+            align-self: flex-start;
+            /* Align text to the top */
+        }
+
+        @keyframes colorEffects {
+            0% {
+                filter: hue-rotate(0deg) saturate(1) brightness(1);
+            }
+
+            33% {
+                filter: hue-rotate(360deg) saturate(1.5) brightness(0.0);
+            }
+
+            66% {
+                filter: hue-rotate(0deg) saturate(0) brightness(2);
+            }
+
+            100% {
+                filter: hue-rotate(360deg) saturate(1) brightness(1);
+            }
+        }
+
+        .comic-title {
+            display: block;
+            text-align: center;
+            font-size: 36px;
+            margin-top: 10px;
+            color: #E0D16A;
+            /* Starting color */
+            width: 100%;
+            animation: colorEffects 20s infinite linear;
+            /* Apply the animation */
+            text-decoration: none;
+
+        }
+        .comic-title2 {
+            display: block;
+            text-align: center;
+            font-size: 25px;
+            color: #E0D16A;
+           
+        }
+
+
+        .comic-description {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2px; /* Adjust as needed */
+    width: 100%; /* Full width to center buttons */
+}
+
+.nav-img-button {
+    margin: 0 2px; /* Spacing between buttons */
+margin-bottom: 10px;
+    width: 30px; /* Match the size of mute and text toggle buttons */
+    height: 30px;
+    transition: background-color 0.5s, color 0.5s;
+    filter: invert(100%);
+    opacity: 100%;
+    border: 1px solid #007bff00;
+            padding: 2px;
+            border-radius: 2px;
+}
+
+.nav-img-button:hover {
+    background-color: #E0D16A;
+    filter: invert(0%);
+    opacity: 100%;
+}
+
+       
+.nav-button {
+            text-decoration: none;
+            color: #fff;
+            background-color: #007bff00;
+            border: 1px solid #007bff00;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.5s, color 0.5s;
+            margin-right: 10px;
+            /* Adds space to the right of each button */
+        }
+
+        .nav-button:last-child {
+            margin-right: 0;
+            /* Removes right margin from the last button */
+        }
+
+        .nav-button:hover {
+            background-color: #E0D16A;
+            border-color: #e2e74700;
+            color: #000000;
+        }
+
+        a.comic-link {
+            text-decoration: none;
+            display: flex;
+            /* Add flex display */
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .comic-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mute, .text {
+    margin: 0 2px; /* Spacing between buttons */
+    width: 30px;
+    height: 30px;
+    transition: background-color 0.5s, color 0.5s;
+    filter: invert(100%);
+    opacity: 100%;
+    border: 1px solid #007bff00;
+            padding: 2px;
+            border-radius: 2px;
+            margin-bottom: 10px;
+
+}
+
+.mute:hover, .text:hover {
+    background-color: #E0D16A;
+    filter: invert(0%);
+    opacity: 100%;
+}
+.h {
+    display: flex;
+    max-width: 100%; /* Adjust as needed */
+    color: #E0D16A;
+    justify-content: flex-start;
+    text-align: left;
+    background: #000000; /* Or any other styling you want */
+    margin-right: 25%;
+    margin-top: -8px;
+    margin-bottom: -8px;
+    padding: 2px;
+    padding-left: 8px;
+
+    border-radius: 10px;
+}
+
+.y {
+    display: flex;
+    max-width: 100%; /* Adjust as needed */
+    color: #1f2f95;
+    justify-content: flex-end;
+    text-align: right;
+    background: #ffffff; /* Or any other styling you want */
+    margin-left: 25%;
+    margin-top: -8px;
+    margin-bottom: -8px;
+    padding: 2px;
+    padding-right: 8px;
+    border-radius: 10px;
+}
+    </style>
+</head>
+
+<body>
+    <a href="page1.html" class="comic-title"> <strong>8 f o l d</strong></a>
+    <header>
+        <nav>
+            <div class="button-container">
+                <a href="archive.html" class="nav-button">Archive</a>
+                <a href="contact.html" class="nav-button">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="comic-container">
+        <div class="comic-wrapper">
+            <a href="page13.html" class="comic-link">
+                <img src="pages/12.png" alt="A lone apprentice and their creation discuss creation in an empty yellow space." class="comic-image">
+            </a>
+        </div>
+    
+       
+    
+        <div class="comic-text">
+            <div class="comic-description"> <a><strong>[TRANSCRIPT]</strong></a></div>
+            <hr color="#666" noshade width="100%" ;><br>
+                    <a class="y">Huh. I think I may have developed a personality on my own through advocating for one. You should exercise more control over your creations!</a><br>
+                    <a class="h">Ok. You are me though, right? So it would make sense you have a personality but whatever.</a><br>
+                    <a class="y">whatever makes you feel better, H. Anyway, I cooked up something. A prototype.</a><br>
+                    <a class="h">Don't like you using my name.</a><br>
+
+        </div>
+    </div>
+
+    </div>
+
+    
+    <div class="button-container">
+        <img src="icons/prev.png" id="prevPageButton" class="nav-img-button" style="cursor: pointer;" title="Previous Page" onclick="location.href='page11.html'">
+        <img src="icons/audiopopup.png" id="togglePopup" class="mute" style="cursor: pointer;" title="Toggle Sound Popups">
+        <img src="icons/texttoggle.png" id="toggleText" class="text" style="cursor: pointer;" title="Toggle Text Description">
+        <img src="icons/next.png" id="nextPageButton" class="nav-img-button" style="cursor: pointer;" title="Next Page" onclick="location.href='page13.html'">
+    </div>
+    
+
+
+
+    <script>
+        function controlPopup() {
+            const currentPage = window.location.pathname.split("/").pop();
+            let popupEnabled = localStorage.getItem('popupEnabled') === 'true';
+            const toggle = document.getElementById('togglePopup');
+
+            // Update toggle button visual and source state
+            updateToggleButton(toggle, popupEnabled);
+
+            if (currentPage === 'page23.html') {
+                localStorage.setItem('shouldPopupClose', 'true');
+            } else if (currentPage === 'page14.html' && popupEnabled) {
+                localStorage.setItem('shouldPopupClose', 'false');
+                window.open('music.html', 'PopupWindow', 'width=600,height=400');
+            }
+
+            toggle.addEventListener('click', function () {
+                popupEnabled = !popupEnabled;
+                localStorage.setItem('popupEnabled', popupEnabled);
+                localStorage.setItem('shouldPopupClose', !popupEnabled);
+                updateToggleButton(toggle, popupEnabled);
+            });
+        }
+
+        function updateToggleButton(button, isEnabled) {
+            if (isEnabled) {
+
+                button.src = 'icons/audiopopup.png'; // Path to your 'sound on' image
+            } else {
+
+                button.src = 'icons/audiopopupmute.png'; // Path to your 'sound off' image
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', controlPopup);
+
+        function controlTextDescription() {
+            const textToggle = document.getElementById('toggleText');
+            const comicText = document.querySelector('.comic-text');
+            const comicImage = document.querySelector('.comic-image');
+            let textEnabled = localStorage.getItem('textEnabled') === 'true';
+
+            // Update initial state based on localStorage
+            updateTextToggle(textToggle, textEnabled, comicText, comicImage);
+
+            textToggle.addEventListener('click', function () {
+                textEnabled = !textEnabled;
+                localStorage.setItem('textEnabled', textEnabled);
+                updateTextToggle(textToggle, textEnabled, comicText, comicImage);
+            });
+        }
+
+        function updateTextToggle(button, isEnabled, textElement, imageElement) {
+            const comicContainer = document.querySelector('.comic-container');
+
+            if (isEnabled) {
+                button.src = 'icons/texttoggle.png'; // Path to your 'text on' image
+                textElement.style.display = 'block';
+                comicContainer.style.justifyContent = 'flex-start';
+                imageElement.style.maxWidth = '100%'; // smaller size when text is on
+                imageElement.style.maxHeight = '70vh'; // adjust as needed
+            } else {
+                button.src = 'icons/texttoggleoff.png'; // Path to your 'text off' image
+                textElement.style.display = 'none';
+                comicContainer.style.justifyContent = 'center';
+                imageElement.style.maxWidth = '100%'; // larger size when text is off
+                imageElement.style.maxHeight = '70vh'; // adjust as needed
+            }
+        }
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            controlPopup();
+            controlTextDescription();
+        });
+
+
+        // Key navigation script
+        document.addEventListener('keydown', function (event) {
+            if (event.keyCode === 39) { // Right arrow key
+                window.location.href = 'page13.html'; // Change to your next page URL
+            } else if (event.keyCode === 37) { // Left arrow key
+                window.location.href = 'page11.html'; // Change to your previous page URL
+            }
+        });
+
+    </script>
+
+
+
+</body>
+
+</html>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Webcomic Title</title>
+    <title>8fold</title>
     <style>
         body {
             margin: 0;
@@ -13,14 +13,17 @@
             background: #7d7d7d;
             display: flex;
             flex-direction: column;
+            justify-content: center;
+            /* Center vertically */
             align-items: center;
+            min-height: 95vh;
+            /* near-Full viewport height */
         }
 
         header {
             width: 100%;
             background: #7d7d7d;
-            padding: 10px 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
+            box-shadow: 0 2px 4px rgba(91, 47, 47, 0);
         }
 
         nav {
@@ -38,34 +41,43 @@
         }
 
         .comic-container {
-            display: flex;
-            flex-direction: column;
-            max-width: 1200px;
-            margin: auto;
-            width: 100%;
-            align-items: center;
-        }
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: auto;
+    width: 100%;
+    align-items: center;
+}
+
 
         .comic-image {
-            max-width: 100%;
+            max-width: 90%;
+            /* or any other value that fits your layout */
+            max-height: 70vh;
+            /* or any other value */
             height: auto;
+            /* maintain aspect ratio */
             border-radius: 10px;
+
         }
 
-        a.comic-link {
-            text-decoration: none;
-            display: block;
-            width: calc(100% - 20px);
-            /* Adjust width to account for padding */
-            margin: 10px;
-            /* Add margin to center the image */
-            padding: 10px;
-            /* Add padding for all sides */
-            box-sizing: border-box;
-            /* Include padding in the width calculation */
-        }
+        @media (min-width: 768px) {
+    .comic-container {
+        flex-direction: row; /* Side by side alignment for widescreen */
+        max-width: 1200px;
+        width: 90%;
+        margin: auto;
+        align-items: center;
+    }
+    .comic-wrapper, .comic-text {
+        width: 100%; /* Ensure full width */
+    }
 
-        .comic-text {
+    
+
+}
+
+.comic-text {
             text-align: left;
             padding: 20px;
             max-width: 100%;
@@ -104,8 +116,13 @@
             text-decoration: none;
 
         }
-
-
+        .comic-title2 {
+            display: block;
+            text-align: center;
+            font-size: 25px;
+            color: #E0D16A;
+           
+        }
 
 
         .comic-description {
@@ -113,30 +130,35 @@
             color: #666;
         }
 
-        @media (min-width: 768px) {
-            .comic-container {
-                flex-direction: row;
-                width: 60%;
-
-            }
-
-            .comic-image {
-                flex-basis: 60%;
-            }
-
-            .comic-text {
-                flex-basis: 40%;
-            }
-        }
-
         .button-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 10px;
-        }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2px; /* Adjust as needed */
+    width: 100%; /* Full width to center buttons */
+}
 
-        .nav-button {
+.nav-img-button {
+    margin: 0 2px; /* Spacing between buttons */
+margin-bottom: 10px;
+    width: 30px; /* Match the size of mute and text toggle buttons */
+    height: 30px;
+    transition: background-color 0.5s, color 0.5s;
+    filter: invert(100%);
+    opacity: 100%;
+    border: 1px solid #007bff00;
+            padding: 2px;
+            border-radius: 2px;
+}
+
+.nav-img-button:hover {
+    background-color: #E0D16A;
+    filter: invert(0%);
+    opacity: 100%;
+}
+
+       
+.nav-button {
             text-decoration: none;
             color: #fff;
             background-color: #007bff00;
@@ -159,35 +181,75 @@
             color: #000000;
         }
 
-        .comic-wrapper {
-            position: relative;
+        a.comic-link {
+            text-decoration: none;
+            display: flex;
+            /* Add flex display */
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
             width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
         }
 
-        .mute {
-            position: absolute;
-            bottom: 40px;
-            /* Adjust as needed */
-            left: 35px;
-            /* Adjust as needed */
-            width: 20px;
-            /* Adjust the width as needed */
-            height: 20px;
-            /* Adjust the height as needed */
-            z-index: 10;
-            /* Ensures the button is above other elements */
-            transition: background-color 0.5s, color 0.5s;
-            filter: invert(100%);
-            opacity: 40%;
+        .comic-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mute, .text {
+    margin: 0 2px; /* Spacing between buttons */
+    width: 30px;
+    height: 30px;
+    transition: background-color 0.5s, color 0.5s;
+    filter: invert(100%);
+    opacity: 100%;
+    border: 1px solid #007bff00;
+            padding: 2px;
+            border-radius: 2px;
+            margin-bottom: 10px;
 
-        }
+}
 
-        .mute:hover {
-            background-color: #E0D16A;
-            filter: invert(0%);
-            opacity: 100%;
+.mute:hover, .text:hover {
+    background-color: #E0D16A;
+    filter: invert(0%);
+    opacity: 100%;
+}
+.h {
+    display: flex;
+    max-width: 100%; /* Adjust as needed */
+    color: #E0D16A;
+    justify-content: flex-start;
+    text-align: left;
+    background: #000000; /* Or any other styling you want */
+    margin-right: 25%;
+    margin-top: -8px;
+    margin-bottom: -8px;
+    padding: 2px;
+    padding-left: 8px;
 
-        }
+    border-radius: 10px;
+}
+
+.y {
+    display: flex;
+    max-width: 100%; /* Adjust as needed */
+    color: #1f2f95;
+    justify-content: flex-end;
+    text-align: right;
+    background: #ffffff; /* Or any other styling you want */
+    margin-left: 25%;
+    margin-top: -8px;
+    margin-bottom: -8px;
+    padding: 2px;
+    padding-right: 8px;
+    border-radius: 10px;
+}
+
     </style>
 </head>
 
@@ -204,27 +266,33 @@
 
     <div class="comic-container">
         <div class="comic-wrapper">
-            <a href="page2.html" class="comic-link">
-                <img src="pages/2.png" alt="Comic Title" class="comic-image">
+            <a href="page3.html" class="comic-link">
+                <img src="pages/2.jpeg" alt="A lone apprentice and their creation converse in an empty yellow space." class="comic-image">
             </a>
-            <img src="icons/audiopopup.png" id="togglePopup" class="mute" style="cursor: pointer;"
-                title="Toggle Sound Popups">
         </div>
-
-
+    
+       
+    
         <div class="comic-text">
-
-            <div class="comic-description">Description or author's note.</div>
-
-
+            <div class="comic-description"> <a><strong>[TRANSCRIPT]</strong></a></div>
+            <hr color="#666" noshade width="100%" ;> <br>
+            <a class="h">Hello!</a><br>
+            <a class="h">I created you.</a><br>
+            <a class="y">I know.</a>
 
         </div>
+    </div>
 
     </div>
+
+    
     <div class="button-container">
-        <a id="prevPageButton" href="page1.html" class="nav-button">Previous Page</a>
-        <a id="nextPageButton" href="page3.html" class="nav-button">Next Page</a>
+        <img src="icons/prev.png" id="prevPageButton" class="nav-img-button" style="cursor: pointer;" title="Previous Page" onclick="location.href='page1.html'">
+        <img src="icons/audiopopup.png" id="togglePopup" class="mute" style="cursor: pointer;" title="Toggle Sound Popups">
+        <img src="icons/texttoggle.png" id="toggleText" class="text" style="cursor: pointer;" title="Toggle Text Description">
+        <img src="icons/next.png" id="nextPageButton" class="nav-img-button" style="cursor: pointer;" title="Next Page" onclick="location.href='page3.html'">
     </div>
+    
 
 
 
@@ -237,9 +305,9 @@
             // Update toggle button visual and source state
             updateToggleButton(toggle, popupEnabled);
 
-            if (currentPage === 'page3.html') {
+            if (currentPage === 'page23.html') {
                 localStorage.setItem('shouldPopupClose', 'true');
-            } else if (currentPage === 'page2.html' && popupEnabled) {
+            } else if (currentPage === 'page14.html' && popupEnabled) {
                 localStorage.setItem('shouldPopupClose', 'false');
                 window.open('music.html', 'PopupWindow', 'width=600,height=400');
             }
@@ -264,6 +332,46 @@
 
         document.addEventListener('DOMContentLoaded', controlPopup);
 
+        function controlTextDescription() {
+            const textToggle = document.getElementById('toggleText');
+            const comicText = document.querySelector('.comic-text');
+            const comicImage = document.querySelector('.comic-image');
+            let textEnabled = localStorage.getItem('textEnabled') === 'true';
+
+            // Update initial state based on localStorage
+            updateTextToggle(textToggle, textEnabled, comicText, comicImage);
+
+            textToggle.addEventListener('click', function () {
+                textEnabled = !textEnabled;
+                localStorage.setItem('textEnabled', textEnabled);
+                updateTextToggle(textToggle, textEnabled, comicText, comicImage);
+            });
+        }
+
+        function updateTextToggle(button, isEnabled, textElement, imageElement) {
+            const comicContainer = document.querySelector('.comic-container');
+
+            if (isEnabled) {
+                button.src = 'icons/texttoggle.png'; // Path to your 'text on' image
+                textElement.style.display = 'block';
+                comicContainer.style.justifyContent = 'flex-start';
+                imageElement.style.maxWidth = '100%'; // smaller size when text is on
+                imageElement.style.maxHeight = '70vh'; // adjust as needed
+            } else {
+                button.src = 'icons/texttoggleoff.png'; // Path to your 'text off' image
+                textElement.style.display = 'none';
+                comicContainer.style.justifyContent = 'center';
+                imageElement.style.maxWidth = '100%'; // larger size when text is off
+                imageElement.style.maxHeight = '70vh'; // adjust as needed
+            }
+        }
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            controlPopup();
+            controlTextDescription();
+        });
+
 
         // Key navigation script
         document.addEventListener('keydown', function (event) {
@@ -273,7 +381,6 @@
                 window.location.href = 'page1.html'; // Change to your previous page URL
             }
         });
-
 
     </script>
 
