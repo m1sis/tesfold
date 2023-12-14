@@ -128,6 +128,7 @@
         .comic-description {
             font-size: 16px;
             color: #666;
+
         }
 
         .button-container {
@@ -250,6 +251,8 @@ margin-bottom: 10px;
     border-radius: 10px;
 }
 
+
+
     </style>
 </head>
 
@@ -266,8 +269,8 @@ margin-bottom: 10px;
 
     <div class="comic-container">
         <div class="comic-wrapper">
-            <a href="page11.html" class="comic-link">
-                <img src="pages/10.png" alt="A lone apprentice and their creation discuss creation in an empty yellow space." class="comic-image">
+            <a href="page15.html" class="comic-link">
+                <img src="pages/14.png" alt="A lone apprentice and their creation discuss creation in an empty yellow space." class="comic-image">
             </a>
         </div>
     
@@ -276,10 +279,9 @@ margin-bottom: 10px;
         <div class="comic-text">
             <div class="comic-description"> <a><strong>[TRANSCRIPT]</strong></a></div>
             <hr color="#666" noshade width="100%" ;><br>
-                    <a class="y">What do you want from this world?</a><br>
-                    <a class="h">I want fantasy. Infinite and responsive.</a><br>
-                    <a class="h">Something that molds you as you mold it. A second, better life.</a><br>
-                    <a class="y">...I have a suggestion.</a><br>
+                    <span class="y">As a quick demonstration of my prototype, let's assume I entered this world with a weapon.</span><br>
+                    <span class="y">A sword.</span><br>
+                    <span class="h">Alright.</span><br>
 
         </div>
     </div>
@@ -288,10 +290,10 @@ margin-bottom: 10px;
 
     
     <div class="button-container">
-        <img src="icons/prev.png" id="prevPageButton" class="nav-img-button" style="cursor: pointer;" title="Previous Page" onclick="location.href='page9.html'">
+        <img src="icons/prev.png" id="prevPageButton" class="nav-img-button" style="cursor: pointer;" title="Previous Page" onclick="location.href='page13.html'">
         <img src="icons/audiopopup.png" id="togglePopup" class="mute" style="cursor: pointer;" title="Toggle Sound Popups">
         <img src="icons/texttoggle.png" id="toggleText" class="text" style="cursor: pointer;" title="Toggle Text Description">
-        <img src="icons/next.png" id="nextPageButton" class="nav-img-button" style="cursor: pointer;" title="Next Page" onclick="location.href='page11.html'">
+        <img src="icons/next.png" id="nextPageButton" class="nav-img-button" style="cursor: pointer;" title="Next Page" onclick="location.href='page15.html'">
     </div>
     
 
@@ -377,9 +379,9 @@ margin-bottom: 10px;
         // Key navigation script
         document.addEventListener('keydown', function (event) {
             if (event.keyCode === 39) { // Right arrow key
-                window.location.href = 'page11.html'; // Change to your next page URL
+                window.location.href = 'page15.html'; // Change to your next page URL
             } else if (event.keyCode === 37) { // Left arrow key
-                window.location.href = 'page9.html'; // Change to your previous page URL
+                window.location.href = 'page13.html'; // Change to your previous page URL
             }
         });
 

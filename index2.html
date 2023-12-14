@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8fold</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: courier;
+        background: #7d7d7d;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      header {
+        width: 100%;
+        background: #7d7d7d;
+        padding: 10px 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
+      }
+
+      nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        text-align: center;
+      }
+
+      nav a {
+        text-decoration: none;
+        margin: 0 15px;
+        color: #ffffff;
+        font-size: 16px;
+      }
+
+      .comic-container {
+        display: flex;
+        flex-direction: column;
+        max-width: 1200px;
+        margin: auto;
+        width: 100%;
+        align-items: center;
+      }
+
+      .comic-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+
+      a.comic-link {
+        text-decoration: none;
+        display: block;
+        width: calc(100% - 20px);
+        /* Adjust width to account for padding */
+        margin: 10px;
+        /* Add margin to center the image */
+        padding: 10px;
+        /* Add padding for all sides */
+        box-sizing: border-box;
+        /* Include padding in the width calculation */
+      }
+
+      .comic-text {
+        text-align: left;
+        padding: 20px;
+        max-width: 100%;
+        align-self: flex-start;
+        /* Align text to the top */
+      }
+
+      @keyframes colorEffects {
+        0% {
+          filter: hue-rotate(0deg) saturate(1) brightness(1);
+        }
+
+        33% {
+          filter: hue-rotate(360deg) saturate(1.5) brightness(0.0);
+        }
+
+        66% {
+          filter: hue-rotate(0deg) saturate(0) brightness(2);
+        }
+
+        100% {
+          filter: hue-rotate(360deg) saturate(1) brightness(1);
+        }
+      }
+
+      
+      .comic-title {
+        display: block;
+        text-align: center;
+        font-size: 55px;
+        margin-top: 50%;
+        color: #7d7d7d;
+        /* Starting color */
+        width: 100%;
+        animation: echoEffect 60s infinite ease-in-out;
+        /* Apply the animation */
+        text-decoration: none;
+
+      }
+     
+      @keyframes echoEffect {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+    filter: blur(0px);
+rotate: 0deg;
+
+  }
+  25% {
+    opacity: 1;
+    filter: blur(0px);
+    rotate: -3deg;
+
+  }
+  50% {
+    transform: scale(1.5); /* Increase the scale */
+    filter: blur(0px); /* Add blurriness */
+  }
+  75% {
+    opacity: 1;
+    filter: blur(0px);
+    rotate: 3deg;
+
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    filter: blur(0px);
+rotate: 0deg;
+    }
+  }
+      
+      @keyframes echoEffect1 {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+    filter: blur(0px);
+color: #E0D16A;
+  }
+  20% {
+    color: #000000;
+    opacity: 1;
+
+  }
+  35% {
+    color: hsl(123, 84%, 55%);
+
+  }
+  50% {
+    color: #ff0000;
+    filter: blur(25px); /* Add blurriness */
+
+  }
+  65% {
+    color: #e854ff;
+
+    opacity: 1;
+
+  }
+  80% {
+    color: #0008ff;
+    filter: blur(30px); /* Add blurriness */
+
+  }
+  100% {
+    transform: scale(1.5); /* Increase the scale */
+    opacity: 0; /* Fade out */
+    color: #000000;
+    filter: blur(2px); /* Add blurriness */
+
+  }
+      }
+     
+
+.comic-title strong {
+  position: relative;
+  z-index: 2;
+}
+
+.comic-title .echo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  animation: echoEffect1 13s infinite ease-in-out; /* Increase duration */
+}
+
+/* Adjusted animation delays */
+.comic-title .echo:nth-child(2) { animation-delay: 2s; }
+.comic-title .echo:nth-child(3) { animation-delay: 4s; }
+.comic-title .echo:nth-child(4) { animation-delay: 6s; }
+.comic-title .echo:nth-child(5) { animation-delay: 8s; }
+.comic-title .echo:nth-child(6) { animation-delay: 10s; }
+.comic-title .echo:nth-child(7) { animation-delay: 12s; }
+.comic-title .echo:nth-child(8) { animation-delay: 14s; }
+.comic-title .echo:nth-child(9) { animation-delay: 16s; }
+.comic-title .echo:nth-child(10) { animation-delay: 18s; }
+.comic-title .echo:nth-child(11) { animation-delay: 20s; }
+.comic-title .echo:nth-child(12) { animation-delay: 22s; }
+
+/* Add more as per the number of echoes you've added */
+
+
+
+
+
+
+
+
+      .comic-description {
+        font-size: 16px;
+        color: #666;
+      }
+
+      @media (min-width: 768px) {
+        .comic-container {
+          flex-direction: row;
+          width: 60%;
+
+        }
+
+        .comic-image {
+          flex-basis: 60%;
+        }
+
+        .comic-text {
+          flex-basis: 40%;
+        }
+      }
+
+      .button-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px;
+      }
+
+      .nav-button {
+        text-decoration: none;
+        color: #fff;
+        background-color: #007bff00;
+        border: 1px solid #007bff00;
+        padding: 5px 10px;
+        border-radius: 5px;
+      box-shadow: #000000;
+        transition: background-color 0.5s, color 0.5s;
+        margin-right: 10px;
+        /* Adds space to the right of each button */
+      }
+
+      .nav-button:last-child {
+        margin-right: 0;
+        /* Removes right margin from the last button */
+      }
+
+      .nav-button:hover {
+        background-color: #E0D16A;
+        border-color: #e2e74700;
+        color: #000000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <a href="./page1.html" class="comic-title">
+        <strong>Thank you for reading!</strong>
+        <span class="echo">Thank you for reading!</span>
+        <span class="echo">Thank you for reading!</span>
+        <span class="echo">Thank you for reading!</span>
+        <span class="echo">Thank you for reading!</span>
+        <span class="echo">Thank you for reading!</span>
+        <span class="echo">Thank you for reading!</span>
+        <span class="echo">Thank you for reading!</span>
+        <span class="echo">Thank you for reading!</span>
+        <span class="echo">Thank you for reading!</span>
+        <span class="echo">Thank you for reading!</span>
+        <span class="echo">Thank you for reading!</span>
+        <span class="echo">Thank you for reading!</span>
+        <!-- Echo element -->
+        <!-- Repeat the above line for as many echoes as you want -->
+      </a>
+    </div>
+    </script>
+  </body>
+</html>
